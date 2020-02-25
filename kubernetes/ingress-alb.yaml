@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ecsdemo-frontend
+  namespace: "default"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+    alb.ingress.kubernetes.io/target-type: ip
+  labels:
+    app: ecsdemo-frontend-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: ecsdemo-frontend
+              servicePort: 80
