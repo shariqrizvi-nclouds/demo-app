@@ -1,6 +1,6 @@
 version: '3'
 services:
   ecsdemo-frontend:
-    image: shariqrizvi/simple-frontend:blue
+    image: shariqrizvi/simple-frontend:green
     ports:
       - "3000:3000"
